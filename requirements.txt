@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-asyncpg==0.21.0
-click==7.1.2
-databases==0.4.1
-fastapi==0.63.0
-gunicorn==20.0.4
-h11==0.12.0
-psycopg2-binary==2.8.6
-pydantic==1.7.3
-SQLAlchemy==1.3.22
-starlette==0.13.6
-uvicorn==0.13.3
-websockets==8.1
-=======
 astroid==2.3.3
 Click==7.0
 colorama==0.4.3
@@ -29,4 +15,3 @@ uvicorn==0.11.7
 websockets==9.1
 wrapt==1.11.2
 uvloop==0.14.0
->>>>>>> 0f875168f23e20d0058dcc62a7ef29af9baa3d84
