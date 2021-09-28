@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from typing import List
 import databases
 import sqlalchemy
@@ -90,3 +91,15 @@ async def delete_note(note_id: int):
     query = notes.delete().where(notes.c.id == note_id)
     await database.execute(query)
     return {"message": "Note with id: {} deleted successfully!".format(note_id)}
+=======
+from fastapi import FastAPI
+
+app = FastAPI()
+
+#domain where this api is hosted for example : localhost:5000/docs to see swagger documentation automagically generated.
+
+
+@app.get("/")
+def home():
+    return {"message":"Hello TutLinks.com"}
+>>>>>>> 0f875168f23e20d0058dcc62a7ef29af9baa3d84
