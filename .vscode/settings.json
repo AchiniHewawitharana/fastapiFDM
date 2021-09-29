@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-    "python.pythonPath": "env\\Scripts\\python.exe"
-=======
     "python.pythonPath": "env\\Scripts\\python.exe",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true
->>>>>>> 0f875168f23e20d0058dcc62a7ef29af9baa3d84
 }
