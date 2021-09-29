@@ -7,5 +7,6 @@ app = FastAPI()
 #domain where this api is hosted for example : localhost:5000/docs to see swagger documentation automagically generated.
 @app.get("/")
 def home():
-    return {"message":"Hello TutLinks.com"}
+    # return {"message":"Hello TutLinks.com"}
+    return {"Hello TutLinks.com"}
     #web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
