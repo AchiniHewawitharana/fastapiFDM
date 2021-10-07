@@ -468,7 +468,12 @@ origins = [
     "http://localhost:8000",
     "http://127.0.0.1:8000/predict",
     "http://127.0.0.1:8000/load",
-    "http://localhost:4200"
+    "http://localhost:4200",
+    "https://fastapi-test-project.herokuapp.com",
+    "https://fastapi-test-project.herokuapp.com/predict",
+    "https://fdm-googleplaystore-clustering.herokuapp.com/predict",
+    "https://fdm-googleplaystore-clustering.herokuapp.com"
+    
 ]
 
 
