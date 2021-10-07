@@ -294,7 +294,7 @@ def davisbouldin(k_list, k_centers):
     res = db/len_k_list
     return res
 
-
+############################################## MODEL EVALUATION #################################################
 
 
 #K-Means
@@ -306,7 +306,7 @@ y_pred = k_means.predict(Df_final)
 #print(y_pred)
 # We store the K-means results in a dataframe
 pred = pd.DataFrame(y_pred)
-pred.columns = ['Type']
+pred.columns = ['cluster']
 
 #print(pred)
 # we merge this dataframe with df
@@ -314,9 +314,9 @@ prediction = pd.concat([Df_final, pred], axis = 1)
 #print(prediction)
 
 # We store the clusters
-clus0 = prediction.loc[prediction.Type == 0]
-clus1 = prediction.loc[prediction.Type == 1]
-#clus2 = prediction.loc[prediction.Type == 2]
+clus0 = prediction.loc[prediction.cluster == 0]
+clus1 = prediction.loc[prediction.cluster == 1]
+
 cluster_list = [clus0.values, clus1.values] 
 #print(dunn(cluster_list))
   
@@ -348,10 +348,25 @@ plt.ylabel('Sum of squared error')
 plt.plot(k_rng,sse)
 
 
+##########  Heirachical Clustering Algorithm  #############
+
+import pandas as pd
+from sklearn.cluster import AgglomerativeClustering
+import scipy.cluster.hierarchy as shc
+from sklearn.datasets import make_blobs
+import matplotlib.pyplot as plt
+
+
+x=df_train.iloc[:,:].values
+
+result=shc.linkage(x, method='ward')
+
+no_clusters = 24
 
 
 
-#DBSCAN
+##########  DBSCAN  ############
+
 from sklearn import cluster
 
 dbsc = cluster.DBSCAN(eps = .005, min_samples = 15).fit(Df_final)
@@ -361,11 +376,7 @@ labels.columns = ['Cluster']
 
 # Number of clusters in labels, ignoring noise if present.
 n_clusters_ = len(set(labels_New)) - (1 if -1 in labels_New else 0)
-
 n_noise_ = list(labels_New).count(-1)
-
-
-
 
 # we merge this dataframe with df
 prediction = pd.concat([Df_final, labels], axis = 1)
@@ -380,9 +391,6 @@ for i in range(n_clusters_):
     
 
 #print(dunn(cluster_list))
-
-
-
 
 dframe= pd.concat([df_ex_preprocessing, labels], axis = 1)
 
@@ -425,33 +433,11 @@ def generateAppCluster(input_name):
     
     return app_details,cluster_apps
 
-
-
-
 app=generateAppCluster(input_name)
 print(type(app))
 
-
-
-
-
-
-
-
-
-
 # from joblib import dump
-
-
-
-
-
 # dump(dbsc, 'server/models/dbscan.joblib') 
-
-
-
-
-
 
 
 ######################
@@ -481,8 +467,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.post("/predict")
+@app.route('/predict')
+#@app.post("/predict")
 async def predict(data:AppName):
     print("Predicting")
     print(type(data))
