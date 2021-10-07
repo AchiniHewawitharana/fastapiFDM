@@ -467,12 +467,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
+@app.get("/predict")
 async def root():
     return {"message": "Hello World"}
 
-
-#@app.route('/predict')
 
 ####################@app.post("/predict")
 # async def predict(data:AppName):
