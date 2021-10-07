@@ -13,3 +13,5 @@ class AppName(BaseModel):
 
     def __getitem__(self, item):
         return getattr(self, item)
+
+    # web: gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app

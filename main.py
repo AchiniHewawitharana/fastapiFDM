@@ -467,8 +467,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.route('/predict')
-#@app.post("/predict")
+#@app.route('/predict')
+@app.post("/predict")
 async def predict(data:AppName):
     print("Predicting")
     print(type(data))
