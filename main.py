@@ -472,8 +472,9 @@ app.add_middleware(
 #     return {"message": "Hello World"}
 
 
-@app.post("/predict")
-async def predict(data:AppName):
+# @app.post("/predict")
+@app.get("/")
+async def root(data:AppName):
     print("Predicting")
     print(type(data))
     app,cluster_apps =generateAppCluster(data.name)
