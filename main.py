@@ -467,21 +467,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/predict")
-async def root():
-    return {"message": "Hello World"}
+# @app.get("/predict")
+# async def root():
+#     return {"message": "Hello World"}
 
 
-####################@app.post("/predict")
-# async def predict(data:AppName):
-#     print("Predicting")
-#     print(type(data))
-#     app,cluster_apps =generateAppCluster(data.name)
-#     json_compatible_app_data = jsonable_encoder(app)
-#     json_compatible_cluster_data = jsonable_encoder(cluster_apps)
-#     return_output=json_compatible_app_data,json_compatible_cluster_data
-#     json_compatible_item_data = jsonable_encoder(return_output)
-#     return JSONResponse(content=json_compatible_item_data)
+@app.post("/predict")
+async def predict(data:AppName):
+    print("Predicting")
+    print(type(data))
+    app,cluster_apps =generateAppCluster(data.name)
+    json_compatible_app_data = jsonable_encoder(app)
+    json_compatible_cluster_data = jsonable_encoder(cluster_apps)
+    return_output=json_compatible_app_data,json_compatible_cluster_data
+    json_compatible_item_data = jsonable_encoder(return_output)
+    return JSONResponse(content=json_compatible_item_data)
 
 
    

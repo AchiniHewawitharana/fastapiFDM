@@ -9,7 +9,8 @@ class AppName(BaseModel):
     # bodyMass: float
     # sex: str
     # species: str
-    name : str
+    ##############################    name : str
+    name = 'Online Girls Chat Group'
 
     def __getitem__(self, item):
         return getattr(self, item)
